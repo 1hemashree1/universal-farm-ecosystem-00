@@ -9,8 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as MushroomsRouteImport } from './routes/mushrooms'
+import { Route as MethodsRouteImport } from './routes/methods'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as KindnessCreditsRouteImport } from './routes/kindness-credits'
+import { Route as DesiGaayRouteImport } from './routes/desi-gaay'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MushroomsRoute = MushroomsRouteImport.update({
+  id: '/mushrooms',
+  path: '/mushrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodsRoute = MethodsRouteImport.update({
+  id: '/methods',
+  path: '/methods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KindnessCreditsRoute = KindnessCreditsRouteImport.update({
+  id: '/kindness-credits',
+  path: '/kindness-credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesiGaayRoute = DesiGaayRouteImport.update({
+  id: '/desi-gaay',
+  path: '/desi-gaay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +79,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/desi-gaay': typeof DesiGaayRoute
+  '/kindness-credits': typeof KindnessCreditsRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/methods': typeof MethodsRoute
+  '/mushrooms': typeof MushroomsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/desi-gaay': typeof DesiGaayRoute
+  '/kindness-credits': typeof KindnessCreditsRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/methods': typeof MethodsRoute
+  '/mushrooms': typeof MushroomsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
+  '/contact': typeof ContactRoute
+  '/desi-gaay': typeof DesiGaayRoute
+  '/kindness-credits': typeof KindnessCreditsRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/methods': typeof MethodsRoute
+  '/mushrooms': typeof MushroomsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/training': typeof TrainingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/community'
+    | '/contact'
+    | '/desi-gaay'
+    | '/kindness-credits'
+    | '/marketplace'
+    | '/methods'
+    | '/mushrooms'
+    | '/sitemap.xml'
+    | '/training'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/community'
+    | '/contact'
+    | '/desi-gaay'
+    | '/kindness-credits'
+    | '/marketplace'
+    | '/methods'
+    | '/mushrooms'
+    | '/sitemap.xml'
+    | '/training'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/community'
+    | '/contact'
+    | '/desi-gaay'
+    | '/kindness-credits'
+    | '/marketplace'
+    | '/methods'
+    | '/mushrooms'
+    | '/sitemap.xml'
+    | '/training'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CommunityRoute: typeof CommunityRoute
+  ContactRoute: typeof ContactRoute
+  DesiGaayRoute: typeof DesiGaayRoute
+  KindnessCreditsRoute: typeof KindnessCreditsRoute
+  MarketplaceRoute: typeof MarketplaceRoute
+  MethodsRoute: typeof MethodsRoute
+  MushroomsRoute: typeof MushroomsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TrainingRoute: typeof TrainingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mushrooms': {
+      id: '/mushrooms'
+      path: '/mushrooms'
+      fullPath: '/mushrooms'
+      preLoaderRoute: typeof MushroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methods': {
+      id: '/methods'
+      path: '/methods'
+      fullPath: '/methods'
+      preLoaderRoute: typeof MethodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kindness-credits': {
+      id: '/kindness-credits'
+      path: '/kindness-credits'
+      fullPath: '/kindness-credits'
+      preLoaderRoute: typeof KindnessCreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desi-gaay': {
+      id: '/desi-gaay'
+      path: '/desi-gaay'
+      fullPath: '/desi-gaay'
+      preLoaderRoute: typeof DesiGaayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +257,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CommunityRoute: CommunityRoute,
+  ContactRoute: ContactRoute,
+  DesiGaayRoute: DesiGaayRoute,
+  KindnessCreditsRoute: KindnessCreditsRoute,
+  MarketplaceRoute: MarketplaceRoute,
+  MethodsRoute: MethodsRoute,
+  MushroomsRoute: MushroomsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TrainingRoute: TrainingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
