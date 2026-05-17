@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import vedicImg from "@/assets/pillar-vedic.jpg";
 import yogicImg from "@/assets/pillar-yogic.jpg";
 import electroImg from "@/assets/pillar-electro.jpg";
+import philosophyImg from "@/assets/philosophy-ecosystem.jpg";
 
 export const Route = createFileRoute("/methods")({
   component: MethodsPage,
@@ -24,7 +25,15 @@ const sections = [
     img: vedicImg,
     eyebrow: "Vedic Farming",
     title: "Aligning with the cycles of the cosmos.",
-    body: "Vedic farming is the inherited science of cultivating in rhythm with lunar cycles, the five Panchatatva elements, and the subtle energies of place. Sowing, transplanting and harvesting are timed to nakshatras. Seeds are treated with Beejamrut. Soil is fed Jeevamrut. Cows, herbs and rivers are the foundation, not the input store.",
+    body: "Vedic Agriculture is a traditional natural farming approach inspired by ancient Indian wisdom — nature-based living, cosmic balance, and sustainable cultivation. It focuses on harmony between soil, plants, animals, water, sunlight, and human consciousness. Modern chemical agriculture has damaged soil fertility, water quality, biodiversity, and human health; Vedic farming offers a living alternative that restores soil, produces nutritious food, and protects future generations.",
+    principles: [
+      "Respect for nature as a living system",
+      "Farming in alignment with natural cycles",
+      "Desi cow-based formulations",
+      "Panchatatva balance — Earth, Water, Fire, Air, Space",
+      "Indigenous seed protection & biodiversity",
+      "Spiritual, mindful cultivation",
+    ],
     practices: [
       "Lunar-aligned sowing and harvesting",
       "Panchagavya, Jeevamrut and Beejamrut preparations",
@@ -33,11 +42,11 @@ const sections = [
       "Cow-based microbial soil regeneration",
     ],
     benefits: [
-      "Higher prana (life-energy) in food",
-      "Deeper nutrition density",
-      "Healthier soil microbiome",
-      "Natural plant immunity",
-      "Independence from chemical inputs",
+      "Restores living soil",
+      "Produces nutrient-dense, prana-rich food",
+      "Reduces dependency on chemicals",
+      "Supports farmer independence",
+      "Protects future generations",
     ],
   },
   {
@@ -45,7 +54,14 @@ const sections = [
     img: yogicImg,
     eyebrow: "Yogic Farming",
     title: "Cultivation as a meditative practice.",
-    body: "Plants respond to consciousness. Yogic farming begins with the farmer — meditation before the work, mantra during the sowing, presence in the field. Sound frequencies, intention, and a peaceful environment become part of the growing conditions, just like sun and water.",
+    body: "Yogic Farming combines organic cultivation with positive consciousness, meditation, peaceful vibrations, and spiritual energy. It is rooted in the understanding that thoughts, emotions, sound, and intention influence plant growth and environmental balance. Through focused meditation, affirmations, and conscious practice, yogic farming improves crop vitality, natural resilience, and the wellbeing of everyone in the field.",
+    principles: [
+      "Meditation practices integrated into farming",
+      "Positive energy cultivation around seed & soil",
+      "Mantra, sound frequencies and sankalp (intention)",
+      "Peaceful, conscious agriculture",
+      "Care for the farmer's inner state as a farm input",
+    ],
     practices: [
       "Pranayama and meditation before farm work",
       "Mantra chanting and live sound in greenhouses",
@@ -54,11 +70,11 @@ const sections = [
       "Community gatherings on full and new moons",
     ],
     benefits: [
-      "Visibly stronger plant growth",
-      "Lower stress and burnout in farmers",
-      "Stable, peaceful farm energy",
-      "Crops that carry a felt-sense vitality",
-      "A spiritual practice that feeds people",
+      "Stress-free farming lifestyle",
+      "Stronger connection with nature",
+      "Reduced chemical dependency",
+      "Positive, peaceful farm environment",
+      "Better ecological harmony & community wellness",
     ],
   },
   {
@@ -66,7 +82,14 @@ const sections = [
     img: electroImg,
     eyebrow: "Electroculture",
     title: "Harvesting the electricity of the atmosphere.",
-    body: "Electroculture is a quietly revolutionary, century-old experimental science — using copper antennas, spirals and magnetic fields to channel atmospheric electricity into the soil and the plant. No chemicals, no electricity bill: just geometry and conductive metal placed with care.",
+    body: "Electroculture is an experimental, nature-inspired farming approach that explores the interaction between atmospheric energy, magnetism, electricity, plants and soil biology. Using conductive materials — copper antennas, atmospheric collectors, magnetic arrangements — it is studied as a low-cost, sustainable support system that may enhance plant vitality, root development, soil microbial activity and water efficiency, alongside organic and regenerative practices.",
+    principles: [
+      "Earth and atmosphere carry natural electrical energy",
+      "Antennas & spirals help plants tap that energy",
+      "Magnetism supports water structuring & soil life",
+      "Sustainable, low-cost, chemical-free experimentation",
+      "Open research — document, share, refine",
+    ],
     practices: [
       "Copper spiral antennas above each plot",
       "Magnetised water for irrigation",
@@ -75,11 +98,11 @@ const sections = [
       "Lunar-timed antenna installation",
     ],
     benefits: [
-      "Faster germination & growth",
-      "Up to 30% less water needed",
-      "Stronger resilience to pests & frost",
-      "Higher yields with no chemical input",
-      "Restoration of depleted soils",
+      "Sustainable food production",
+      "Reduced chemical dependence",
+      "Regenerative soil & water efficiency",
+      "Eco-conscious innovation",
+      "A frontier of future farming technologies",
     ],
   },
 ];
@@ -113,7 +136,8 @@ function MethodsPage() {
               <span className="text-[11px] uppercase tracking-[0.3em] text-gold-600 font-semibold">{s.eyebrow}</span>
               <h2 className="font-serif text-4xl md:text-5xl leading-tight text-balance">{s.title}</h2>
               <p className="text-foreground/80 leading-relaxed">{s.body}</p>
-              <div className="grid sm:grid-cols-2 gap-8 pt-4">
+              <div className="grid sm:grid-cols-3 gap-8 pt-4">
+                <Group title="Core Principles" items={s.principles} />
                 <Group title="Practices" items={s.practices} />
                 <Group title="Benefits" items={s.benefits} />
               </div>
@@ -121,6 +145,47 @@ function MethodsPage() {
           </div>
         </section>
       ))}
+
+      <section className="py-28 px-6 bg-background">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <img
+            src={philosophyImg}
+            alt="Universal Farm philosophy — regenerative ecosystem at golden hour"
+            loading="lazy"
+            width={1600}
+            height={1024}
+            className="w-full aspect-[4/3] object-cover rounded-sm ring-1 ring-black/5"
+          />
+          <div className="space-y-6">
+            <span className="text-[11px] uppercase tracking-[0.3em] text-gold-600 font-semibold">
+              Our Farming Philosophy
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              Agriculture is a <em className="italic text-gold-600">relationship</em>, not a transaction.
+            </h2>
+            <p className="text-foreground/80 leading-relaxed">
+              At Universal Farm we are weaving a regenerative ecosystem that combines Vedic wisdom,
+              yogic consciousness, natural farming, electroculture experimentation, indigenous
+              knowledge, community cooperation and sustainable living — a self-sustaining model for
+              healthy soil, healthy food, healthy communities and harmony with nature.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-foreground/80">
+              {[
+                "Healthy soil",
+                "Healthy food",
+                "Healthy communities",
+                "Ethical trade",
+                "Conscious living",
+                "Harmony with nature",
+              ].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <span className="mt-2 size-1 rounded-full bg-gold-500 shrink-0" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section className="py-28 px-6 bg-moss-900 text-sand-50 relative overflow-hidden">
         <div className="absolute inset-0 mandala-bg opacity-20" />
@@ -141,6 +206,29 @@ function MethodsPage() {
                 <p className="mt-3 text-sand-100/80 leading-relaxed">{a}</p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 px-6 bg-sand-100">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-600 font-semibold">
+            Join the mission
+          </span>
+          <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] text-balance">
+            Help us build a regenerative ecosystem rooted in <em className="italic text-gold-600">wisdom, consciousness &amp; compassion</em>.
+          </h2>
+          <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
+            Together we can create chemical-free farming, conscious communities, healthy ecosystems,
+            ethical marketplaces, and a sustainable future for generations to come.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <a href="/community" className="bg-foreground hover:bg-foreground/85 text-sand-50 text-[11px] uppercase tracking-[0.22em] font-bold px-7 py-3.5 rounded-xs transition-colors">
+              Join the Community
+            </a>
+            <a href="/training" className="ring-1 ring-foreground/20 hover:ring-gold-500 text-foreground text-[11px] uppercase tracking-[0.22em] font-bold px-7 py-3.5 rounded-xs transition-colors">
+              Explore Training
+            </a>
           </div>
         </div>
       </section>
