@@ -121,6 +121,29 @@ function MethodsPage() {
           </div>
         </section>
       ))}
+
+      <section className="py-28 px-6 bg-moss-900 text-sand-50 relative overflow-hidden">
+        <div className="absolute inset-0 mandala-bg opacity-20" />
+        <div className="max-w-4xl mx-auto relative">
+          <h2 className="font-serif text-4xl md:text-5xl mb-10">Common questions about the methods.</h2>
+          <div className="space-y-4">
+            {[
+              ["Do these methods scale to commercial farms?", "Yes. Vedic and electroculture methods are being practiced on multi-acre commercial farms across India and Europe with verified yield data."],
+              ["Is electroculture scientifically validated?", "Independent research dating to the early 1900s (Lemström, Briard) and current peer-reviewed studies confirm measurable plant response to atmospheric electric and magnetic fields."],
+              ["Can I combine these methods with my current farm?", "Absolutely — most farms transition incrementally, starting with one plot, one method, and expanding as confidence grows."],
+              ["Do I need to be a yoga practitioner for yogic farming?", "No formal practice required. The principle is presence and intention — anyone can begin today."],
+            ].map(([q, a]) => (
+              <details key={q} className="group bg-white/5 ring-1 ring-white/10 rounded-sm p-5 open:bg-white/[0.08]">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-6">
+                  <span className="font-serif text-xl">{q}</span>
+                  <span className="text-gold-500 text-2xl leading-none transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sand-100/80 leading-relaxed">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

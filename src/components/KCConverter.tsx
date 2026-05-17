@@ -1,12 +1,16 @@
 import { useMemo, useState } from "react";
-
-const RATE_EUR_INR = 90; // illustrative
-const KC_IN_EUR = 8;
+import { CurrencySelector } from "./CurrencySelector";
+import { useCurrency } from "@/lib/currency";
 
 export function KCConverter({ compact = false }: { compact?: boolean }) {
-  const [amount, setAmount] = useState("1200");
-  const inr = Number(amount) || 0;
-  const kc = useMemo(() => inr / (KC_IN_EUR * RATE_EUR_INR), [inr]);
+  const [amount, setAmount] = useState("100");
+  const [mode, setMode] = useState<"fiat" | "kc">("fiat");
+  const { currency, meta, format, kcPriceIn, fiatToKc, kcToFiat, isLive } = useCurrency();
+  const num = Number(amount) || 0;
+  const result = useMemo(() => {
+    return mode === "fiat" ? fiatToKc(num) : kcToFiat(num);
+  }, [num, mode, fiatToKc, kcToFiat]);
+  const oneKc = kcPriceIn();
 
   return (
     <div className={`bg-zinc-900 text-sand-50 rounded-sm p-6 flex flex-col justify-between ${compact ? "" : "min-h-full"}`}>
@@ -15,29 +19,62 @@ export function KCConverter({ compact = false }: { compact?: boolean }) {
           <span className="text-[10px] font-bold tracking-[0.22em] text-gold-500 uppercase">
             KC Exchange
           </span>
-          <div className="size-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+          <div className="flex items-center gap-2">
+            <div className="size-1.5 rounded-full bg-emerald-400 animate-pulse-soft" />
+            <span className="text-[9px] uppercase tracking-widest text-zinc-500">
+              {isLive ? "Live" : "Approx"}
+            </span>
+          </div>
         </div>
         <div className="space-y-1">
           <div className="text-xs text-zinc-500">1 Kindness Credit =</div>
           <div className="text-2xl font-medium tracking-tight">
-            {KC_IN_EUR.toFixed(2)} EUR · ₹{(KC_IN_EUR * RATE_EUR_INR).toLocaleString("en-IN")}
+            {format(oneKc)}
+            <span className="text-zinc-500 text-base"> · 8 EUR anchored</span>
           </div>
         </div>
+
+        <div className="grid grid-cols-2 gap-2 pt-2">
+          <button
+            onClick={() => setMode("fiat")}
+            className={`text-[10px] uppercase tracking-widest py-1.5 rounded-xs transition-colors ${
+              mode === "fiat" ? "bg-gold-500 text-white" : "bg-white/5 text-zinc-400 hover:text-sand-50"
+            }`}
+          >
+            {meta.code} → KC
+          </button>
+          <button
+            onClick={() => setMode("kc")}
+            className={`text-[10px] uppercase tracking-widest py-1.5 rounded-xs transition-colors ${
+              mode === "kc" ? "bg-gold-500 text-white" : "bg-white/5 text-zinc-400 hover:text-sand-50"
+            }`}
+          >
+            KC → {meta.code}
+          </button>
+        </div>
+
         <div className="space-y-3 pt-4">
-          <label className="block">
-            <span className="sr-only">Amount in INR</span>
-            <input
-              inputMode="decimal"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value.replace(/[^\d.]/g, ""))}
-              placeholder="Enter INR amount"
-              className="w-full bg-white/5 border border-white/10 rounded-sm py-2 px-3 text-sm placeholder:text-zinc-600 focus:outline-none focus:border-gold-500/60"
-            />
-          </label>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center bg-white/5 border border-white/10 rounded-sm flex-1 focus-within:border-gold-500/60">
+              <span className="pl-3 pr-1 text-zinc-500 text-sm">
+                {mode === "fiat" ? meta.symbol : "∞"}
+              </span>
+              <input
+                inputMode="decimal"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value.replace(/[^\d.]/g, ""))}
+                placeholder={mode === "fiat" ? `Amount in ${currency}` : "Amount in KC"}
+                className="bg-transparent w-full py-2 pr-3 text-sm placeholder:text-zinc-600 focus:outline-none"
+              />
+            </div>
+            <CurrencySelector />
+          </div>
           <div className="text-center">
             <div className="text-[10px] text-zinc-500 uppercase tracking-widest py-1">yields</div>
             <div className="text-3xl text-gold-500 font-serif italic">
-              {kc.toFixed(2)} KC
+              {mode === "fiat"
+                ? `${result.toFixed(2)} KC`
+                : format(result)}
             </div>
           </div>
         </div>

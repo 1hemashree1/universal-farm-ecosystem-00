@@ -68,6 +68,35 @@ function MushroomsPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-4xl mb-3">A complete mycology ecosystem.</h2>
+          <p className="text-muted-foreground max-w-2xl mb-12">From the lab bench to your kitchen — and from the spent substrate back into the soil.</p>
+          <div className="grid md:grid-cols-2 gap-10">
+            <Pillar title="Products" items={["Fresh gourmet varieties", "Dried & powdered shelf-stable stock", "Medicinal extracts & tinctures", "Spawn packets & ready-to-fruit bags", "DIY home grow kits"]} />
+            <Pillar title="Cultivation services" items={["Substrate consultation", "Sterilization equipment & grow tents", "Humidity & climate control systems", "Site visits and commercial setup", "Mushroom value-add product design"]} />
+            <Pillar title="Training paths" items={["Beginner: home cultivation in 7 days", "Advanced: spawn production & lab setup", "Master: commercial mycology & R&D", "Medicinal mushroom intensive"]} />
+            <Pillar title="Why it matters" items={["Mushrooms recycle agricultural waste into protein", "Food, medicine, soil — from one organism", "Low capital, fast turnaround, high margin", "A regenerative income for small farms"]} />
+          </div>
+        </div>
+      </section>
     </>
+  );
+}
+
+function Pillar({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div>
+      <h3 className="text-[11px] uppercase tracking-[0.22em] text-gold-600 font-semibold mb-4">{title}</h3>
+      <ul className="space-y-2 text-sm text-foreground/80">
+        {items.map((it) => (
+          <li key={it} className="flex gap-3">
+            <span className="mt-2 size-1 rounded-full bg-gold-500 shrink-0" />
+            {it}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

@@ -1,6 +1,10 @@
 import type { Product } from "@/data/products";
+import { useCurrency } from "@/lib/currency";
 
 export function ProductCard({ p }: { p: Product }) {
+  const { format, kcToFiat } = useCurrency();
+  const fiatPrice = kcToFiat(p.kc) / (1 - p.savePct / 100); // implied list price in current currency
+  const kcAsFiat = kcToFiat(p.kc);
   return (
     <article className="group space-y-4">
       <div className="relative overflow-hidden rounded-sm bg-white ring-1 ring-black/5">
@@ -21,11 +25,16 @@ export function ProductCard({ p }: { p: Product }) {
           {p.category}
         </p>
         <h3 className="font-medium text-foreground">{p.name}</h3>
-        <div className="flex items-baseline gap-3 mt-1.5">
+        <div className="flex items-baseline gap-3 mt-1.5 flex-wrap">
           <span className="text-xs text-muted-foreground line-through">
-            ₹{p.fiat.toLocaleString("en-IN")}
+            {format(fiatPrice)}
           </span>
-          <span className="text-sm font-semibold text-gold-600">{p.kc} KC</span>
+          <span className="text-sm font-semibold text-gold-600">
+            {p.kc} KC
+          </span>
+          <span className="text-[10px] text-muted-foreground">
+            ≈ {format(kcAsFiat)}
+          </span>
         </div>
       </div>
     </article>
