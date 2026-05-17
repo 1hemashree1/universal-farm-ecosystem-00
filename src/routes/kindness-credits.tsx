@@ -236,3 +236,49 @@ const FAQS = [
   { q: "How do I earn KC without paying fiat?", a: "Teach a workshop, publish field research, sell produce, volunteer at a gaushala, refer a new member, or contribute documentation. Every accepted contribution credits your wallet." },
   { q: "Where can I spend KC?", a: "On every product in the marketplace, on training programs, and peer-to-peer with other members. Many vendors offer 10–30% discounts when you pay fully in KC." },
 ];
+
+const GIFT_CARDS: { kc: number; label: string }[] = [
+  { kc: 0.1, label: "Taster" },
+  { kc: 1, label: "Starter" },
+  { kc: 5, label: "Supporter" },
+  { kc: 25, label: "Patron" },
+];
+
+function GiftCardItem({ kc, label }: { kc: number; label: string }) {
+  const { format, kcToFiat } = useCurrency();
+  return (
+    <div className="bg-moss-900 text-sand-50 p-6 rounded-sm flex flex-col justify-between gap-6 ring-1 ring-gold-500/20">
+      <div>
+        <span className="text-[10px] uppercase tracking-[0.22em] text-gold-500 font-bold">
+          {label}
+        </span>
+        <div className="font-serif text-4xl mt-3">∞{kc} KC</div>
+        <div className="text-sm text-sand-100/70 mt-1">≈ {format(kcToFiat(kc))}</div>
+      </div>
+      <button className="bg-gold-500 hover:bg-gold-600 text-white text-[11px] uppercase tracking-[0.22em] font-bold py-2.5 rounded-xs transition-colors">
+        Buy Gift Card
+      </button>
+    </div>
+  );
+}
+
+const VIDEOS: { tag: string; title: string; desc: string; embed: string }[] = [
+  {
+    tag: "Video No 1",
+    title: "Promoting Kindness Credits in your community",
+    desc: "A practical primer for ULCT members and Hub coordinators — how to introduce ∞KC into your local community, family and small business.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UU8FOlR2VUcnXahEtEPnKp0Q",
+  },
+  {
+    tag: "Video No 2",
+    title: "Banking the slave token out of existence",
+    desc: "Why systems that demand payment in fiat to grant freedom only compound slavery. Kindness Credits credit you for stepping out — every conversion removes a slave token from supply and funds real Kind deeds.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UUzstMejEH2fX9JOxjW6AAOg",
+  },
+  {
+    tag: "Video No 3",
+    title: "Welcome to Universal Law Community Trust",
+    desc: "Introduction to Universal Law and the ULCT framework — sovereignty, lawful standing, and the community that holds the ∞KC currency together.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UU8FOlR2VUcnXahEtEPnKp0Q",
+  },
+];
