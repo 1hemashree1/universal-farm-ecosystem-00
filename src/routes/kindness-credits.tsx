@@ -26,6 +26,40 @@ function KCPage() {
         intro="KC is an internal community credit. Earn it by contributing — research, training, farming, volunteering — or top up your wallet with fiat. Spend it at 10–30% off across the marketplace."
       />
 
+      <section className="py-20 px-6 bg-moss-900 text-sand-50">
+        <div className="max-w-5xl mx-auto space-y-6">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-500 font-semibold">
+            Together with ULCT
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+            A new community, free from the slavery system — using a new, tax-free currency.
+          </h2>
+          <p className="text-sand-100/85 text-lg leading-relaxed">
+            Universal Farm stands together with the <strong className="text-gold-500">Universal Law Community Trust (ULCT)</strong> in
+            building a parallel economy rooted in kindness, sovereignty, and contribution. Our
+            marketplace lists every item in <strong>two currencies</strong> — your local fiat
+            ("slave tokens") and <strong className="text-gold-500">∞KC Kindness Credits</strong>. Use
+            the pop-out price toggles to see the comparison instantly.
+          </p>
+          <p className="text-sand-100/85 leading-relaxed">
+            Convert your fiat into Kindness Credits by purchasing a <strong>∞KC Gift Card</strong> — then
+            redeem that credit anywhere in the ecosystem at 10–30% off. Read the{" "}
+            <a href="/marketplace" className="text-gold-500 underline">Shop &amp; T&amp;C's</a> to see
+            how the conversion works, or <a href="/contact" className="text-gold-500 underline">contact us</a>{" "}
+            if you'd like to meet the coordinators of your local Hub or set up the ∞KC Converter in
+            your own shop.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <a href="/marketplace" className="bg-gold-500 hover:bg-gold-600 text-white text-[11px] uppercase tracking-[0.22em] font-bold px-6 py-3 rounded-xs transition-colors">
+              Visit the Shop
+            </a>
+            <a href="#gift-cards" className="ring-1 ring-sand-100/30 hover:ring-gold-500 text-sand-50 text-[11px] uppercase tracking-[0.22em] font-bold px-6 py-3 rounded-xs transition-colors">
+              Get a ∞KC Gift Card
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-6">
@@ -57,6 +91,26 @@ function KCPage() {
         </div>
       </section>
 
+      <section id="gift-cards" className="py-24 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-600 font-semibold">
+            ∞KC Gift Cards
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl mt-3 mb-4 max-w-2xl">
+            Convert fiat into Kindness Credits.
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mb-12">
+            Each Gift Card credits a fixed amount of ∞KC to your wallet, redeemable anywhere in the
+            Universal Farm marketplace. Inspired by the Space Cake ∞KC Conversion model used inside ULCT.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {GIFT_CARDS.map((g) => (
+              <GiftCardItem key={g.kc} kc={g.kc} label={g.label} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl mb-3 max-w-xl">How conversion works.</h2>
@@ -77,6 +131,45 @@ function KCPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-sand-50">
+        <div className="max-w-6xl mx-auto">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-600 font-semibold">
+            Watch &amp; Learn
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl mt-3 mb-12 max-w-2xl">
+            Understanding ULCT &amp; Kindness Credits.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {VIDEOS.map((v) => (
+              <article key={v.title} className="space-y-3">
+                <div className="aspect-video bg-zinc-900 rounded-sm ring-1 ring-black/10 overflow-hidden relative">
+                  <iframe
+                    className="w-full h-full"
+                    src={v.embed}
+                    title={v.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.22em] text-gold-600 font-semibold">
+                  {v.tag}
+                </span>
+                <h3 className="font-serif text-xl leading-tight">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 p-6 ring-1 ring-black/10 rounded-sm bg-card max-w-3xl">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Continue learning on the <a href="https://www.youtube.com/channel/UC8FOlR2VUcnXahEtEPnKp0Q/videos" target="_blank" rel="noreferrer" className="text-gold-600 underline">ULCT YouTube channel</a> and
+              the <a href="https://www.youtube.com/channel/UCzstMejEH2fX9JOxjW6AAOg/" target="_blank" rel="noreferrer" className="text-gold-600 underline">Em Oven channel</a>, or
+              visit <a href="https://universallawcommunitytrust.me/" target="_blank" rel="noreferrer" className="text-gold-600 underline">universallawcommunitytrust.me</a>.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -142,4 +235,50 @@ const FAQS = [
   { q: "Can I cash out KC back to fiat?", a: "KC is built for circulation inside the ecosystem, not extraction. In limited cases (e.g. closing a vendor account) refunds may be issued in fiat at the prevailing anchor rate." },
   { q: "How do I earn KC without paying fiat?", a: "Teach a workshop, publish field research, sell produce, volunteer at a gaushala, refer a new member, or contribute documentation. Every accepted contribution credits your wallet." },
   { q: "Where can I spend KC?", a: "On every product in the marketplace, on training programs, and peer-to-peer with other members. Many vendors offer 10–30% discounts when you pay fully in KC." },
+];
+
+const GIFT_CARDS: { kc: number; label: string }[] = [
+  { kc: 0.1, label: "Taster" },
+  { kc: 1, label: "Starter" },
+  { kc: 5, label: "Supporter" },
+  { kc: 25, label: "Patron" },
+];
+
+function GiftCardItem({ kc, label }: { kc: number; label: string }) {
+  const { format, kcToFiat } = useCurrency();
+  return (
+    <div className="bg-moss-900 text-sand-50 p-6 rounded-sm flex flex-col justify-between gap-6 ring-1 ring-gold-500/20">
+      <div>
+        <span className="text-[10px] uppercase tracking-[0.22em] text-gold-500 font-bold">
+          {label}
+        </span>
+        <div className="font-serif text-4xl mt-3">∞{kc} KC</div>
+        <div className="text-sm text-sand-100/70 mt-1">≈ {format(kcToFiat(kc))}</div>
+      </div>
+      <button className="bg-gold-500 hover:bg-gold-600 text-white text-[11px] uppercase tracking-[0.22em] font-bold py-2.5 rounded-xs transition-colors">
+        Buy Gift Card
+      </button>
+    </div>
+  );
+}
+
+const VIDEOS: { tag: string; title: string; desc: string; embed: string }[] = [
+  {
+    tag: "Video No 1",
+    title: "Promoting Kindness Credits in your community",
+    desc: "A practical primer for ULCT members and Hub coordinators — how to introduce ∞KC into your local community, family and small business.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UU8FOlR2VUcnXahEtEPnKp0Q",
+  },
+  {
+    tag: "Video No 2",
+    title: "Banking the slave token out of existence",
+    desc: "Why systems that demand payment in fiat to grant freedom only compound slavery. Kindness Credits credit you for stepping out — every conversion removes a slave token from supply and funds real Kind deeds.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UUzstMejEH2fX9JOxjW6AAOg",
+  },
+  {
+    tag: "Video No 3",
+    title: "Welcome to Universal Law Community Trust",
+    desc: "Introduction to Universal Law and the ULCT framework — sovereignty, lawful standing, and the community that holds the ∞KC currency together.",
+    embed: "https://www.youtube.com/embed/videoseries?list=UU8FOlR2VUcnXahEtEPnKp0Q",
+  },
 ];
