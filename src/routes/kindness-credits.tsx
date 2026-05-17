@@ -26,6 +26,40 @@ function KCPage() {
         intro="KC is an internal community credit. Earn it by contributing — research, training, farming, volunteering — or top up your wallet with fiat. Spend it at 10–30% off across the marketplace."
       />
 
+      <section className="py-20 px-6 bg-moss-900 text-sand-50">
+        <div className="max-w-5xl mx-auto space-y-6">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-500 font-semibold">
+            Together with ULCT
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+            A new community, free from the slavery system — using a new, tax-free currency.
+          </h2>
+          <p className="text-sand-100/85 text-lg leading-relaxed">
+            Universal Farm stands together with the <strong className="text-gold-500">Universal Law Community Trust (ULCT)</strong> in
+            building a parallel economy rooted in kindness, sovereignty, and contribution. Our
+            marketplace lists every item in <strong>two currencies</strong> — your local fiat
+            ("slave tokens") and <strong className="text-gold-500">∞KC Kindness Credits</strong>. Use
+            the pop-out price toggles to see the comparison instantly.
+          </p>
+          <p className="text-sand-100/85 leading-relaxed">
+            Convert your fiat into Kindness Credits by purchasing a <strong>∞KC Gift Card</strong> — then
+            redeem that credit anywhere in the ecosystem at 10–30% off. Read the{" "}
+            <a href="/marketplace" className="text-gold-500 underline">Shop &amp; T&amp;C's</a> to see
+            how the conversion works, or <a href="/contact" className="text-gold-500 underline">contact us</a>{" "}
+            if you'd like to meet the coordinators of your local Hub or set up the ∞KC Converter in
+            your own shop.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <a href="/marketplace" className="bg-gold-500 hover:bg-gold-600 text-white text-[11px] uppercase tracking-[0.22em] font-bold px-6 py-3 rounded-xs transition-colors">
+              Visit the Shop
+            </a>
+            <a href="#gift-cards" className="ring-1 ring-sand-100/30 hover:ring-gold-500 text-sand-50 text-[11px] uppercase tracking-[0.22em] font-bold px-6 py-3 rounded-xs transition-colors">
+              Get a ∞KC Gift Card
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-6">
@@ -57,6 +91,26 @@ function KCPage() {
         </div>
       </section>
 
+      <section id="gift-cards" className="py-24 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-600 font-semibold">
+            ∞KC Gift Cards
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl mt-3 mb-4 max-w-2xl">
+            Convert fiat into Kindness Credits.
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mb-12">
+            Each Gift Card credits a fixed amount of ∞KC to your wallet, redeemable anywhere in the
+            Universal Farm marketplace. Inspired by the Space Cake ∞KC Conversion model used inside ULCT.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {GIFT_CARDS.map((g) => (
+              <GiftCardItem key={g.kc} kc={g.kc} label={g.label} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl mb-3 max-w-xl">How conversion works.</h2>
@@ -77,6 +131,45 @@ function KCPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-sand-50">
+        <div className="max-w-6xl mx-auto">
+          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-600 font-semibold">
+            Watch &amp; Learn
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl mt-3 mb-12 max-w-2xl">
+            Understanding ULCT &amp; Kindness Credits.
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {VIDEOS.map((v) => (
+              <article key={v.title} className="space-y-3">
+                <div className="aspect-video bg-zinc-900 rounded-sm ring-1 ring-black/10 overflow-hidden relative">
+                  <iframe
+                    className="w-full h-full"
+                    src={v.embed}
+                    title={v.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.22em] text-gold-600 font-semibold">
+                  {v.tag}
+                </span>
+                <h3 className="font-serif text-xl leading-tight">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 p-6 ring-1 ring-black/10 rounded-sm bg-card max-w-3xl">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Continue learning on the <a href="https://www.youtube.com/channel/UC8FOlR2VUcnXahEtEPnKp0Q/videos" target="_blank" rel="noreferrer" className="text-gold-600 underline">ULCT YouTube channel</a> and
+              the <a href="https://www.youtube.com/channel/UCzstMejEH2fX9JOxjW6AAOg/" target="_blank" rel="noreferrer" className="text-gold-600 underline">Em Oven channel</a>, or
+              visit <a href="https://universallawcommunitytrust.me/" target="_blank" rel="noreferrer" className="text-gold-600 underline">universallawcommunitytrust.me</a>.
+            </p>
+          </div>
         </div>
       </section>
 
