@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import gaayImg from "@/assets/pillar-vedic.jpg";
+import gaayImg from "@/assets/desi-gaay-cow.jpg";
 
 export const Route = createFileRoute("/desi-gaay")({
   component: DesiGaayPage,
