@@ -3,6 +3,8 @@ import { useState } from "react";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
 import { products, productCategories } from "@/data/products";
+import { CurrencySelector } from "@/components/CurrencySelector";
+import { useCurrency } from "@/lib/currency";
 
 export const Route = createFileRoute("/marketplace")({
   component: MarketplacePage,
@@ -21,6 +23,7 @@ export const Route = createFileRoute("/marketplace")({
 function MarketplacePage() {
   const [cat, setCat] = useState<string>("All");
   const list = cat === "All" ? products : products.filter((p) => p.category === cat);
+  const { format, kcPriceIn, meta } = useCurrency();
 
   return (
     <>
@@ -29,6 +32,23 @@ function MarketplacePage() {
         title={<>Provisions from the <em className="italic text-gold-600">regenerative network</em>.</>}
         intro="Every product is sourced from verified contributors and priced in both fiat and Kindness Credits. Paying with KC unlocks 10–30% community pricing."
       />
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-7xl mx-auto bg-moss-900 text-sand-50 rounded-sm p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <span className="size-2 rounded-full bg-emerald-400 animate-pulse-soft" />
+            <p className="text-sm">
+              Showing prices in <strong>{meta.code}</strong> · 1 KC ={" "}
+              <strong className="text-gold-500">{format(kcPriceIn())}</strong>
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-[10px] uppercase tracking-widest text-sand-100/60">Change currency</span>
+            <CurrencySelector />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 mb-12">
@@ -53,6 +73,21 @@ function MarketplacePage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="py-20 bg-sand-100 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          {[
+            ["Verified contributors", "Every vendor is reviewed by the community for natural-farming practices, traceability, and ethical sourcing."],
+            ["Dual pricing", "Pay in your local fiat or in Kindness Credits. KC payments unlock 10–30% off the regular price."],
+            ["Direct from the farm", "Where possible, products ship from the farm to your door. No anonymous middle layer."],
+          ].map(([t, d]) => (
+            <div key={t} className="space-y-2">
+              <h3 className="font-serif text-2xl text-gold-600">{t}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>
