@@ -100,6 +100,3 @@ function Pillar({ title, items }: { title: string; items: string[] }) {
     </div>
   );
 }
-    </>
-  );
-}
