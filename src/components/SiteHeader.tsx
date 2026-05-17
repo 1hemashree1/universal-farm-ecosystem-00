@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo-mark.png";
+import { CurrencySelector } from "./CurrencySelector";
 
 const links = [
   { to: "/about", label: "About" },
@@ -58,11 +59,12 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-3">
+          <CurrencySelector className="hidden sm:inline-flex" />
           <Link
-            to="/community"
+            to="/kindness-credits"
             className="hidden md:inline-flex text-xs ring-1 ring-black/10 bg-foreground text-sand-50 py-2 px-4 rounded-sm font-medium hover:bg-moss-900 transition-colors"
           >
-            Join Community
+            KC Wallet
           </Link>
           <button
             aria-label="Toggle menu"
@@ -91,6 +93,9 @@ export function SiteHeader() {
                 {l.label}
               </Link>
             ))}
+            <div className="pt-2">
+              <CurrencySelector />
+            </div>
           </div>
         </div>
       )}

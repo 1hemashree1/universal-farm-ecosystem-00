@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Particles } from "@/components/Particles";
+import { CurrencyProvider } from "@/lib/currency";
 
 function NotFoundComponent() {
   return (
@@ -118,14 +119,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col bg-background text-foreground relative">
-        <Particles />
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-      </div>
+      <CurrencyProvider>
+        <div className="min-h-screen flex flex-col bg-background text-foreground relative">
+          <Particles />
+          <SiteHeader />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
+      </CurrencyProvider>
     </QueryClientProvider>
   );
 }
