@@ -15,6 +15,7 @@ import { Route as MushroomsRouteImport } from './routes/mushrooms'
 import { Route as MethodsRouteImport } from './routes/methods'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as KindnessCreditsRouteImport } from './routes/kindness-credits'
+import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as DesiGaayRouteImport } from './routes/desi-gaay'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
@@ -51,6 +52,11 @@ const KindnessCreditsRoute = KindnessCreditsRouteImport.update({
   path: '/kindness-credits',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EcosystemRoute = EcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesiGaayRoute = DesiGaayRouteImport.update({
   id: '/desi-gaay',
   path: '/desi-gaay',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/desi-gaay': typeof DesiGaayRoute
+  '/ecosystem': typeof EcosystemRoute
   '/kindness-credits': typeof KindnessCreditsRoute
   '/marketplace': typeof MarketplaceRoute
   '/methods': typeof MethodsRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/desi-gaay': typeof DesiGaayRoute
+  '/ecosystem': typeof EcosystemRoute
   '/kindness-credits': typeof KindnessCreditsRoute
   '/marketplace': typeof MarketplaceRoute
   '/methods': typeof MethodsRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/desi-gaay': typeof DesiGaayRoute
+  '/ecosystem': typeof EcosystemRoute
   '/kindness-credits': typeof KindnessCreditsRoute
   '/marketplace': typeof MarketplaceRoute
   '/methods': typeof MethodsRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/desi-gaay'
+    | '/ecosystem'
     | '/kindness-credits'
     | '/marketplace'
     | '/methods'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/desi-gaay'
+    | '/ecosystem'
     | '/kindness-credits'
     | '/marketplace'
     | '/methods'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/desi-gaay'
+    | '/ecosystem'
     | '/kindness-credits'
     | '/marketplace'
     | '/methods'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   DesiGaayRoute: typeof DesiGaayRoute
+  EcosystemRoute: typeof EcosystemRoute
   KindnessCreditsRoute: typeof KindnessCreditsRoute
   MarketplaceRoute: typeof MarketplaceRoute
   MethodsRoute: typeof MethodsRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KindnessCreditsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ecosystem': {
+      id: '/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof EcosystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/desi-gaay': {
       id: '/desi-gaay'
       path: '/desi-gaay'
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   DesiGaayRoute: DesiGaayRoute,
+  EcosystemRoute: EcosystemRoute,
   KindnessCreditsRoute: KindnessCreditsRoute,
   MarketplaceRoute: MarketplaceRoute,
   MethodsRoute: MethodsRoute,
