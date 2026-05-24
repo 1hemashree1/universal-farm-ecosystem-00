@@ -5,6 +5,7 @@ import { CurrencySelector } from "./CurrencySelector";
 
 const links = [
   { to: "/about", label: "About" },
+  { to: "/ecosystem", label: "Ecosystem" },
   { to: "/methods", label: "Methods" },
   { to: "/marketplace", label: "Marketplace" },
   { to: "/kindness-credits", label: "KC Exchange" },
