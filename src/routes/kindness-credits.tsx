@@ -101,7 +101,7 @@ function KCPage() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mb-12">
             Each Gift Card credits a fixed amount of ∞KC to your wallet, redeemable anywhere in the
-            Universal Farm marketplace. Inspired by the Space Cake ∞KC Conversion model used inside ULCT.
+            Universal Farm marketplace. Powered by the ∞KC Conversion model, supported by Space Cake and ULCT.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {GIFT_CARDS.map((g) => (
