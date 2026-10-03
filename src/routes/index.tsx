@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { KCConverter } from "@/components/KCConverter";
 import { SectionHeading } from "@/components/SectionHeading";
 import { products } from "@/data/products";
+import { DivisionsGrid, RippleBand } from "@/components/DivisionsGrid";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -30,12 +31,32 @@ function Index() {
   return (
     <>
       <Hero />
+      <WhatIs />
       <Pillars />
       <Marketplace />
       <DesiGaayTeaser />
       <Community />
       <Journey />
     </>
+  );
+}
+
+function WhatIs() {
+  return (
+    <section className="py-28 px-6">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeading
+          eyebrow="What is Universal Farm"
+          title={<>A working farm, a learning school and a <em className="text-gold-600">kind economy</em> — in one</>}
+          intro="Universal Farm brings Vedic natural farming, yogic living and electroculture together with practical livelihoods. We grow real food, train real people and trade fairly in fiat and ∞KC — so health and harmony grow from one person to their family, society, nation and the whole world."
+        />
+        <div className="mt-14"><DivisionsGrid /></div>
+        <div className="mt-20">
+          <SectionHeading eyebrow="Ripple of impact" title="From self to universe" />
+          <div className="mt-10"><RippleBand /></div>
+        </div>
+      </div>
+    </section>
   );
 }
 

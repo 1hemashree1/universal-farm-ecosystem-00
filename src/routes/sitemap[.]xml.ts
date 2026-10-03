@@ -23,6 +23,16 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/training", changefreq: "weekly", priority: "0.7" },
           { path: "/desi-gaay", changefreq: "monthly", priority: "0.7" },
           { path: "/mushrooms", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions", changefreq: "monthly", priority: "0.9" },
+          { path: "/divisions/mushroom", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/vedic-farming", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/desi-gaay", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/electroculture", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/organic-inputs", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/seeds-nursery", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/training", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/marketplace-packaging", changefreq: "monthly", priority: "0.7" },
+          { path: "/divisions/community-kc", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.5" },
         ];
 
