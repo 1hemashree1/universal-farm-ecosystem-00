@@ -9,67 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TrainingRouteImport } from './routes/training'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as MushroomsRouteImport } from './routes/mushrooms'
-import { Route as MethodsRouteImport } from './routes/methods'
-import { Route as MarketplaceRouteImport } from './routes/marketplace'
-import { Route as KindnessCreditsRouteImport } from './routes/kindness-credits'
-import { Route as EcosystemRouteImport } from './routes/ecosystem'
-import { Route as DesiGaayRouteImport } from './routes/desi-gaay'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CommunityRouteImport } from './routes/community'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DesiGaayRouteImport } from './routes/desi-gaay'
+import { Route as DivisionsRouteImport } from './routes/divisions'
+import { Route as EcosystemRouteImport } from './routes/ecosystem'
+import { Route as KindnessCreditsRouteImport } from './routes/kindness-credits'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as MethodsRouteImport } from './routes/methods'
+import { Route as MushroomsRouteImport } from './routes/mushrooms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as DivisionsIndexRouteImport } from './routes/divisions.index'
+import { Route as DivisionsSlugRouteImport } from './routes/divisions.$slug'
 
-const TrainingRoute = TrainingRouteImport.update({
-  id: '/training',
-  path: '/training',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MushroomsRoute = MushroomsRouteImport.update({
-  id: '/mushrooms',
-  path: '/mushrooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MethodsRoute = MethodsRouteImport.update({
-  id: '/methods',
-  path: '/methods',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketplaceRoute = MarketplaceRouteImport.update({
-  id: '/marketplace',
-  path: '/marketplace',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KindnessCreditsRoute = KindnessCreditsRouteImport.update({
-  id: '/kindness-credits',
-  path: '/kindness-credits',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EcosystemRoute = EcosystemRouteImport.update({
-  id: '/ecosystem',
-  path: '/ecosystem',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DesiGaayRoute = DesiGaayRouteImport.update({
-  id: '/desi-gaay',
-  path: '/desi-gaay',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -77,10 +35,70 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesiGaayRoute = DesiGaayRouteImport.update({
+  id: '/desi-gaay',
+  path: '/desi-gaay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DivisionsRoute = DivisionsRouteImport.update({
+  id: '/divisions',
+  path: '/divisions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcosystemRoute = EcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KindnessCreditsRoute = KindnessCreditsRouteImport.update({
+  id: '/kindness-credits',
+  path: '/kindness-credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodsRoute = MethodsRouteImport.update({
+  id: '/methods',
+  path: '/methods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MushroomsRoute = MushroomsRouteImport.update({
+  id: '/mushrooms',
+  path: '/mushrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DivisionsIndexRoute = DivisionsIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => DivisionsRoute,
+} as any)
+const DivisionsSlugRoute = DivisionsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DivisionsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -89,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/desi-gaay': typeof DesiGaayRoute
+  '/divisions': typeof DivisionsRouteWithChildren
   '/ecosystem': typeof EcosystemRoute
   '/kindness-credits': typeof KindnessCreditsRoute
   '/marketplace': typeof MarketplaceRoute
@@ -96,6 +115,8 @@ export interface FileRoutesByFullPath {
   '/mushrooms': typeof MushroomsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/training': typeof TrainingRoute
+  '/divisions/$slug': typeof DivisionsSlugRoute
+  '/divisions/': typeof DivisionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +131,8 @@ export interface FileRoutesByTo {
   '/mushrooms': typeof MushroomsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/training': typeof TrainingRoute
+  '/divisions/$slug': typeof DivisionsSlugRoute
+  '/divisions': typeof DivisionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -118,6 +141,7 @@ export interface FileRoutesById {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/desi-gaay': typeof DesiGaayRoute
+  '/divisions': typeof DivisionsRouteWithChildren
   '/ecosystem': typeof EcosystemRoute
   '/kindness-credits': typeof KindnessCreditsRoute
   '/marketplace': typeof MarketplaceRoute
@@ -125,6 +149,8 @@ export interface FileRoutesById {
   '/mushrooms': typeof MushroomsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/training': typeof TrainingRoute
+  '/divisions/$slug': typeof DivisionsSlugRoute
+  '/divisions/': typeof DivisionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -134,6 +160,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/desi-gaay'
+    | '/divisions'
     | '/ecosystem'
     | '/kindness-credits'
     | '/marketplace'
@@ -141,6 +168,8 @@ export interface FileRouteTypes {
     | '/mushrooms'
     | '/sitemap.xml'
     | '/training'
+    | '/divisions/$slug'
+    | '/divisions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +184,8 @@ export interface FileRouteTypes {
     | '/mushrooms'
     | '/sitemap.xml'
     | '/training'
+    | '/divisions/$slug'
+    | '/divisions'
   id:
     | '__root__'
     | '/'
@@ -162,6 +193,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/desi-gaay'
+    | '/divisions'
     | '/ecosystem'
     | '/kindness-credits'
     | '/marketplace'
@@ -169,6 +201,8 @@ export interface FileRouteTypes {
     | '/mushrooms'
     | '/sitemap.xml'
     | '/training'
+    | '/divisions/$slug'
+    | '/divisions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -177,6 +211,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   DesiGaayRoute: typeof DesiGaayRoute
+  DivisionsRoute: typeof DivisionsRouteWithChildren
   EcosystemRoute: typeof EcosystemRoute
   KindnessCreditsRoute: typeof KindnessCreditsRoute
   MarketplaceRoute: typeof MarketplaceRoute
@@ -188,74 +223,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/training': {
-      id: '/training'
-      path: '/training'
-      fullPath: '/training'
-      preLoaderRoute: typeof TrainingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mushrooms': {
-      id: '/mushrooms'
-      path: '/mushrooms'
-      fullPath: '/mushrooms'
-      preLoaderRoute: typeof MushroomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/methods': {
-      id: '/methods'
-      path: '/methods'
-      fullPath: '/methods'
-      preLoaderRoute: typeof MethodsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/marketplace': {
-      id: '/marketplace'
-      path: '/marketplace'
-      fullPath: '/marketplace'
-      preLoaderRoute: typeof MarketplaceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kindness-credits': {
-      id: '/kindness-credits'
-      path: '/kindness-credits'
-      fullPath: '/kindness-credits'
-      preLoaderRoute: typeof KindnessCreditsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ecosystem': {
-      id: '/ecosystem'
-      path: '/ecosystem'
-      fullPath: '/ecosystem'
-      preLoaderRoute: typeof EcosystemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/desi-gaay': {
-      id: '/desi-gaay'
-      path: '/desi-gaay'
-      fullPath: '/desi-gaay'
-      preLoaderRoute: typeof DesiGaayRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -265,15 +237,113 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desi-gaay': {
+      id: '/desi-gaay'
+      path: '/desi-gaay'
+      fullPath: '/desi-gaay'
+      preLoaderRoute: typeof DesiGaayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/divisions': {
+      id: '/divisions'
+      path: '/divisions'
+      fullPath: '/divisions'
+      preLoaderRoute: typeof DivisionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecosystem': {
+      id: '/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof EcosystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kindness-credits': {
+      id: '/kindness-credits'
+      path: '/kindness-credits'
+      fullPath: '/kindness-credits'
+      preLoaderRoute: typeof KindnessCreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methods': {
+      id: '/methods'
+      path: '/methods'
+      fullPath: '/methods'
+      preLoaderRoute: typeof MethodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mushrooms': {
+      id: '/mushrooms'
+      path: '/mushrooms'
+      fullPath: '/mushrooms'
+      preLoaderRoute: typeof MushroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/divisions/': {
+      id: '/divisions/'
+      path: '/'
+      fullPath: '/divisions/'
+      preLoaderRoute: typeof DivisionsIndexRouteImport
+      parentRoute: typeof DivisionsRoute
+    }
+    '/divisions/$slug': {
+      id: '/divisions/$slug'
+      path: '/$slug'
+      fullPath: '/divisions/$slug'
+      preLoaderRoute: typeof DivisionsSlugRouteImport
+      parentRoute: typeof DivisionsRoute
     }
   }
 }
+
+interface DivisionsRouteChildren {
+  DivisionsSlugRoute: typeof DivisionsSlugRoute
+  DivisionsIndexRoute: typeof DivisionsIndexRoute
+}
+
+const DivisionsRouteChildren: DivisionsRouteChildren = {
+  DivisionsSlugRoute: DivisionsSlugRoute,
+  DivisionsIndexRoute: DivisionsIndexRoute,
+}
+
+const DivisionsRouteWithChildren = DivisionsRoute._addFileChildren(
+  DivisionsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -281,6 +351,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   DesiGaayRoute: DesiGaayRoute,
+  DivisionsRoute: DivisionsRouteWithChildren,
   EcosystemRoute: EcosystemRoute,
   KindnessCreditsRoute: KindnessCreditsRoute,
   MarketplaceRoute: MarketplaceRoute,
